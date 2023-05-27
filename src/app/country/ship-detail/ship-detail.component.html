@@ -1,0 +1,56 @@
+<section
+  class="vh-100 w-100 royal-blue-gradient"
+  style="
+    display: grid;
+    grid-template-columns: 1280px 1fr;
+    grid-template-rows: vh-100;
+  "
+>
+  <section class="vh-100 w-100 near-white pa4 br3" style="max-width: 1280px">
+    <img
+      [ngSrc]="shipInfo.imageUrl"
+      [alt]="shipInfo.shipName"
+      width="1280"
+      height="720"
+      class="br3"
+      usemap="#shipMap"
+    />
+    <map name="shipMap" 
+    >
+      <area
+        *ngFor="let at of shipInfo.attachments"
+        shape="circle"
+        [alt]="at.attachmentName"
+        [coords]="at.coords"
+        (mouseover)="handleMouseOver($event, at.attachmentId)"
+      />
+    </map>
+    <h2 class="font-bebas-nueue mv2 f-headline">
+      {{ shipInfo.shipName }}
+    </h2>
+    <p class="f2 font-VT323 mv2">
+      {{ shipInfo.description }}
+    </p>
+  </section>
+  <section class="bl pa4 near-white w-100">
+    <h3 class="font-bebas-nueue f1 ma2 static">Attachments</h3>
+    <hr />
+    <div class="overflow-y-scroll" style="height: 85vh">
+      <ng-container *ngFor="let at of shipInfo.attachments">
+        <div class="ba-white br3 ba b--light-gray ma4 attachment-card pointer">
+          <img
+            [src]="at.attachmentImageUrl"
+            [alt]="at.attachmentName"
+            class="br3"
+            style="max-height: 15rem"
+          />
+
+          <div class="pa4">
+            <h4 class="font-bebas-nueue f3 mv2">{{ at.attachmentName }}</h4>
+            <p class="font-VT323">{{ at.attachmentDescription }}</p>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </section>
+</section>

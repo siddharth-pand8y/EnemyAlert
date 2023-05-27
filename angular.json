@@ -30,7 +30,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/assets/styles/styles.scss",
+              "src/assets/styles/tachyons.css"
             ],
             "scripts": []
           },
@@ -93,7 +94,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/assets/styles/styles.scss",
+              "src/assets/styles/tachyons.css"
             ],
             "scripts": []
           }
