@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ships';
+
+  constructor(
+    private router: Router
+  ) {
+    if(localStorage.length) {
+      this.router.navigateByUrl(`country/${localStorage.getItem('countryCode')}/ships`);
+    }
+    else {
+      this.router.navigateByUrl('country');
+    }
+  }
 }

@@ -7,7 +7,7 @@ import { CountrySelectorComponent } from './country-selector/country-selector.co
 
 const routes: Routes = [
   {
-    path: '',
+    path:'',
     component: CountrySelectorComponent,
   },
   {
