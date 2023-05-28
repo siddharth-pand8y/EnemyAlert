@@ -1,6 +1,24 @@
 .attachment-card {
-    &:hover {
-        color: royalblue;
-        background: lightgray;
-    }
+  transition: all 0.2s ease-in;
+
+  &:hover {
+    background: #292e49;
+  }
+}
+
+.active-attachment {
+  border: 10px solid #292e49;
+
+  color: royalblue;
+  background: lightgray;
+  h4 {
+    font-size: 3rem;
+  }
+  p {
+    font-size: 1.5rem;
+  }
+}
+
+.active-area {
+  background-color: aqua;
 }

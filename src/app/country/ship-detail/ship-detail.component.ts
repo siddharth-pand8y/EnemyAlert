@@ -11,6 +11,7 @@ import { IShipDetail } from 'src/app/common/interface/ship.interface';
 export class ShipDetailComponent {
   shipId: number = 1;
   shipInfo: IShipDetail = SHIPS[0];
+  selectedAttachment: number = -1;
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
@@ -26,17 +27,36 @@ export class ShipDetailComponent {
     const index = SHIPS.findIndex((s) => s.shipId === shipId);
 
     if (index !== -1) {
-      this.shipInfo = SHIPS[index];
+      this.shipInfo = { ...SHIPS[index] };
     }
-
-    console.log(this.shipInfo);
   }
 
-  handleMouseOver(event: MouseEvent, attachmentId: number) {
-    console.log(
-      'mouseOver',
-      event,
-      this.shipInfo.attachments.filter((a) => a.attachmentId === attachmentId)
+  handleMouseEnter(event: MouseEvent, attachmentId: number) {
+    const attachmentIndex = this.shipInfo.attachments.findIndex(
+      (a) => a.attachmentId === attachmentId
     );
+    if (attachmentIndex !== -1) {
+      this.selectedAttachment =
+        this.shipInfo.attachments[attachmentIndex].attachmentId;
+      this.rotateArray(this.shipInfo.attachments, attachmentIndex);
+    }
+  }
+
+  handleMouseLeave(): void {
+    this.resetAttachmentList();
+  }
+
+  clickCoord(event: MouseEvent): void {
+    console.log(`${event.offsetX},${event.offsetY},50`);
+  }
+
+  rotateArray<T>(array: Array<T>, positions: number): Array<T> {
+    const subArray = array.splice(0, positions);
+    array.push(...subArray);
+    return array;
+  }
+
+  resetAttachmentList(): void {
+    this.selectedAttachment = -1;
   }
 }

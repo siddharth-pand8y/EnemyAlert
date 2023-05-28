@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Country } from 'src/app/common';
+import { ECountry } from 'src/app/common';
+import { ECountryColor } from 'src/app/common';
 
 @Component({
   selector: 'app-country-selector',
@@ -8,12 +9,14 @@ import { Country } from 'src/app/common';
   styleUrls: ['./country-selector.component.scss']
 })
 export class CountrySelectorComponent {
-  public country = Country;
+  public country = ECountry;
+  public countryColor = ECountryColor;
 
   constructor(private router: Router) {}
 
-  handleCountrySelection(country: Country): void {
+  handleCountrySelection(country: ECountry): void {
     localStorage.setItem('countryCode', country);
-    this.router.navigateByUrl('/country/' + country);
+    localStorage.setItem('countryColor', ECountryColor[country]);
+    this.router.navigateByUrl(`/country/${country}/ships`);
   }
 }

@@ -1,1 +1,30 @@
-<p>ship works!</p>
+<header
+  class="absolute top-0 w-100 flex justify-between items-center ph4 font-josefin-sans"
+  id="header"
+>
+  <div class="f4 lh" [ngStyle]="{ color: countryColor }">ENEMY ALERT</div>
+  <img
+    [ngSrc]="countryFlag"
+    [alt]="countryCode"
+    height="30"
+    width="40"
+    class="shadow-1 pointer grow:hover"
+    [routerLink]="'/country'"
+  />
+</header>
+<main
+  class="royal-blue-gradient pa3 grid-container--fit mt5"
+  id="ship-list-container"
+>
+  <div
+    *ngFor="let ship of ships"
+    class="ship-card ba br3 b-near-white white ma2 pointer"
+    [routerLink]="ship.shipId.toString()"
+  >
+    <img [src]="ship.imageUrl" alt="" />
+    <div class="pa3">
+      <h2 class="font-bebas-nueue">{{ ship.shipName }}</h2>
+      <p [innerHTML]="ship.description" class="font-VT323"></p>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,23 @@
+#header {
+  height: 4rem;
+}
+
+.grid-container--fit {
+  grid-template-columns: repeat(auto-fit, minmax(336px, 1fr));
+}
+
+#ship-list-container {
+  display: grid;
+  grid-template-rows: auto;
+  grid-column-gap: 1rem;
+  grid-row-gap: 1rem;
+  min-height: calc(100vh - 4rem);
+
+  .ship-card {
+    transition: all 0.2s ease-in;
+
+    &:hover {
+      background: #292e49;
+    }
+  }
+}
