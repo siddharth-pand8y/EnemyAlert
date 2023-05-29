@@ -1,14 +1,15 @@
 <div class="flex vh-100 justify-around items-center">
   <div
-    class="flex h-100 w-100 bebas-nueue pointer cover country-selector"
+    class="flex h-100 w-100 bebas-nueue pointer cover country-selector bg-pakistan-silk-flag"
     id="pakistan-selection"
     (click)="handleCountrySelection(country.Pakistan)"
   >
     <div
       class="background-image flex h-100 w-100 items-center justify-center bg-center"
     >
-      <div class="w-auto justify-center align-center pt4 br4"
-        [ngStyle]="{'color': countryColor.PK}"
+      <div
+        class="w-auto justify-center align-center pt4 br4 bg-pakistan-silk-flag"
+        [ngStyle]="{ color: countryColor.PK }"
       >
         <p>Pakistan</p>
         <hr />
@@ -18,16 +19,14 @@
   </div>
 
   <div
-    class="flex h-100 w-100 bebas-nueue pointer cover bg-left country-selector items-center justify-center"
+    class="flex h-100 w-100 bebas-nueue pointer cover bg-left country-selector items-center justify-center bg-china-silk-flag"
     id="china-selection"
     (click)="handleCountrySelection(country.China)"
   >
-    <div
-      class="background-image flex h-100 w-100 items-center justify-center bg-center"
-    >
-      <div class="w-auto justify-center align-center pt4 br4"
-      [ngStyle]="{'color': '#FFFF00'}"
-
+    <div class="flex h-100 w-100 items-center justify-center bg-center">
+      <div
+        class="w-auto justify-center align-center pt4 br4"
+        [ngStyle]="{ color: '#FFFF00' }"
       >
         <p>China</p>
         <hr />

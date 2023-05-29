@@ -6,11 +6,31 @@ import { ECountryColor } from 'src/app/common';
 @Component({
   selector: 'app-country-selector',
   templateUrl: './country-selector.component.html',
-  styleUrls: ['./country-selector.component.scss']
+  styleUrls: ['./country-selector.component.scss'],
 })
 export class CountrySelectorComponent {
   public country = ECountry;
   public countryColor = ECountryColor;
+
+  countryList = [
+    {
+      countryCode: ECountry.Pakistan,
+      countryName: 'Pakistan',
+      colors: {
+        primaryColor: this.countryColor.PK,
+        secondaryColor: '#fff',
+      },
+    },
+    {
+      countryCode: ECountry.China,
+      countryName: 'China',
+      colors: {
+        primaryColor: this.countryColor.CN,
+        secondaryColor: '#fff',
+      },
+      
+    },
+  ];
 
   constructor(private router: Router) {}
 

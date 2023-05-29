@@ -19,7 +19,6 @@ export class ShipComponent {
     this.countryCode = localStorage.getItem('countryCode');
     this.countryFlag = `assets/images/${this.countryCode}/flag.jpg`;
     this.countryColor = localStorage.getItem('countryColor');
-    console.log(this.countryCode,this.route, this.router)
     this.ships = [...SHIPS.filter((s) => s.countryId === this.countryCode)];
   }
 }
